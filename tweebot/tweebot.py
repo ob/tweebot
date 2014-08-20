@@ -284,7 +284,7 @@ def SearchMentions(limit=100):
 	'''Returns the mentions of the current user'''
 	def search_handler(context):
 		try:
-			mentions = tweepy.Cursor(context.api.mentions).items(limit=limit)
+			mentions = tweepy.Cursor(context.api.mentions_timeline).items(limit=limit)
 			return list(mentions)
 		except tweepy.error.TweepError, e:
 			logging.error('Filed to search mentions | %s' % str(e))
